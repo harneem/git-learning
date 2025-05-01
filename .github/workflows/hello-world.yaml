@@ -3,6 +3,8 @@ name: Hello World Workflow
 on:
   push:
     branches: [ master ]
+  pull_request : 
+    branches : [ master ]
 
 jobs:
   hello:
@@ -11,6 +13,16 @@ jobs:
     steps:
       - name: Say Hello
         run: echo "Hello, GitHub Actions!"
+        
+      - name: Show date
+        run: date
+
+  world :
+    runs-on: windows
+    
+    steps:
+      - name: Say world
+        run: echo "world, GitHub Actions!"
         
       - name: Show date
         run: date
