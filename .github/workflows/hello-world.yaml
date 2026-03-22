@@ -1,28 +1,13 @@
 name: Hello World Workflow
 
 on:
-  push:
-    branches: [ master ]
-  pull_request : 
-    branches : [ master ]
+  workflow_dispatch:
 
 jobs:
   hello:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted,linux]
     
     steps:
       - name: Say Hello
         run: echo "Hello, GitHub Actions!"
         
-      - name: Show date
-        run: date
-
-  world :
-    runs-on: windows
-    
-    steps:
-      - name: Say world
-        run: echo "world, GitHub Actions!"
-        
-      - name: Show date
-        run: date
