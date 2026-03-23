@@ -1,13 +1,12 @@
-name: Hello World Workflow
-
-on:
-  workflow_dispatch:
+name: Matrix Build
+on: push
 
 jobs:
-  hello:
+  build:
     runs-on: [self-hosted,linux]
-    
+    strategy:
+      matrix:
+        node: [14, 16, 18]
     steps:
-      - name: Say Hello
-        run: echo "Hello, GitHub Actions!"
-        
+      - name: Setup Node
+        uses: actions/setup-node@v3
