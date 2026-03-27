@@ -1,12 +1,37 @@
-name: Matrix Build
-on: push
+name: Deploy Workflow
+
+on:
+  workflow_dispatch:
+    
 
 jobs:
-  build:
+  Print-branch-info:
     runs-on: [self-hosted,linux]
-    strategy:
-      matrix:
-        node: [14, 16, 18]
+
     steps:
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      name: L1 - Basic Checkout
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  understand-checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print what got checked out
+        run: |
+          echo "Branch ref   : $GITHUB_REF"
+          echo "Commit SHA   : $GITHUB_SHA"
+          echo "Repository   : $GITHUB_REPOSITORY"
+          echo "Triggered by : $GITHUB_ACTOR"
+          echo "-----------------------------"
+          git log --oneline -5        # show last 5 commits checked out
+          git branch                  # confirm which branch you're on
