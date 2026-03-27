@@ -12,20 +12,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      name: L1 - Basic Checkout
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  understand-checkout:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
       - name: Print what got checked out
         run: |
           echo "Branch ref   : $GITHUB_REF"
