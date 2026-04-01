@@ -8,7 +8,7 @@ on:
 jobs:
   Print-using-context:
     runs-on: [self-hosted,linux]
-    if : "${{github.ref_name==master}}"
+    if : ${{github.ref_name=='master'}}
     steps:
       - name: Print message when branch is main
         run: echo "Hello we are on master branch!"
