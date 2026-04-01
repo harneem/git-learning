@@ -1,4 +1,4 @@
-name: Print name of github user using github context
+name: Print Repo name using github context
 
 on:
   push:
@@ -6,9 +6,9 @@ on:
       - master  
 
 jobs:
-  Print-branchname-using-context:
+  Print-reponame-using-context:
     runs-on: [self-hosted,linux]
     steps:
       - name: Print branch name
-        run: echo "Triggered on branch ${{github.ref_name}}"
+        run: echo "Triggered on repo ${{github.repository}}"
         
