@@ -1,4 +1,4 @@
-name: L2 - ref Override Demo
+name: Print name of github user using github context
 
 on:
   push:
@@ -6,17 +6,9 @@ on:
       - master  
 
 jobs:
-  checkout-different-branch:
+  Print-name-using-context:
     runs-on: [self-hosted,linux]
     steps:
-      - name: Checkout 'int' branch instead of main
-        uses: actions/checkout@v4
-        with:
-          ref: int          
-
-      - name: Prove we are on int branch
-        run: |
-          echo "Triggered by push to  : $GITHUB_REF"
-          echo "Actually checked out  :"
-          git branch          # should show 'int'
-          git log --oneline -3
+      - name: Print actor name
+        run: echo "Triggered by ${{github.actor}}"
+        
