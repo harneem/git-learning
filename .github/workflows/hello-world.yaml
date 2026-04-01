@@ -6,9 +6,9 @@ on:
       - master  
 
 jobs:
-  Print-name-using-context:
+  Print-branchname-using-context:
     runs-on: [self-hosted,linux]
     steps:
-      - name: Print actor name
-        run: echo "Triggered by ${{github.actor}}"
+      - name: Print branch name
+        run: echo "Triggered on branch ${{github.ref_name}}"
         
