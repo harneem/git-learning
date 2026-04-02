@@ -3,14 +3,14 @@
 
 name : Mix env and github contexts
 
-on:[push]
+on: [push]
 
 env :
   GREETINGS : "Hello"
 
 jobs :
-    name: mix-env+context
-    runs-on: [self-hosted,linux]
-      - steps:
-           -name : Printing greetings for everyone
-            run : echo "${{env.GREETINGS}} from ${{github.actor}}"
+  name: mix env and context
+  runs-on: [self-hosted,linux]
+    steps:
+      - name: Printing greetings for everyone
+        run: echo "${{env.GREETINGS}} from ${{github.actor}}"
