@@ -1,7 +1,7 @@
 # Access a custom environment variable and combine it with a context value.
 # Goal: Mix env and github contexts
 
-name : mix env and github contexts
+name : Mix env and github contexts
 
 on:[push]
 
