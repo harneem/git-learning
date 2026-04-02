@@ -1,16 +1,16 @@
-name: Print repo name
+# Access a custom environment variable and combine it with a context value.
+# Goal: Mix env and github contexts
 
-on:
-  push:
-    branches:
-      - master  
+name : Mix env and github contexts
 
-jobs:
-  Print-using-context:
+on:[push]
+
+env :
+  GREETINGS : "Hello"
+
+jobs :
+    name: mix-env+context
     runs-on: [self-hosted,linux]
-    if: ${{github.ref_name=='master'}}
-    
-    steps:
-      - name: Print only when branch is master
-        run: echo "I am currently on branch ${{github.ref_name }} so printing this"
-        
+      - steps:
+           -name : Printing greetings for everyone
+            run : echo "${{env.GREETINGS}} from ${{github.actor}}"
