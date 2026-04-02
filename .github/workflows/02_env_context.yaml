@@ -1,0 +1,16 @@
+# Access a custom environment variable and combine it with a context value.
+# Goal: Mix env and github contexts
+
+name : mix env and github contexts
+
+on:[push]
+
+env :
+  GREETINGS : "Hello"
+
+jobs :
+    name: mix-env+context
+    runs-on: [self-hosted,linux]
+      - steps:
+           -name : Printing greetings for everyone
+            run : echo "${{env.GREETINGS}} from ${{github.actor}}"
