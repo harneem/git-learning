@@ -11,5 +11,5 @@ jobs:
    
     steps:
       - name: Print branch name
-        run: echo "I am currently on branch ${{github.ref==master}}"
+        run: echo "I am currently on branch ${{github.ref_name }}"
         
